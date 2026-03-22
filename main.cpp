@@ -8,37 +8,39 @@ int main() {
     const double RATE10 = 3.70;
     const double RATE20 = 4.80;
 
-    double weight, distance, dRate, price;
+    double weight;
+    double distance;
+    double dRate;
+    double price;
 
-    cout << "Enter the package weight and distance\n";
     cin >> weight >> distance;
 
-    if (weight <= 0 || weight > 20) {
-        return 0;  
-    }
-
-    if (distance < 10 || distance > 3000) {
+    if (weight <= 0.0 || weight > 20.0) {
         return 0;
     }
 
-    if (weight <= 2) {
+    if (distance < 10.0 || distance > 3000.0) {
+        return 0;
+    }
+
+    if (weight <= 2.0) {
         dRate = RATE2;
-    } else if (weight <= 6) {
+    } else if (weight <= 6.0) {
         dRate = RATE6;
-    } else if (weight <= 10) {
+    } else if (weight <= 10.0) {
         dRate = RATE10;
     } else {
         dRate = RATE20;
     }
 
-    if (distance > 500) {
+    if (distance > 500.0) {
         price = (distance / 500.0) * dRate;
     } else {
         price = dRate;
     }
 
-    cout << setprecision(2) << fixed;
-    cout << "The shipping price for package is " << price << endl;
+    cout << fixed << setprecision(2);
+    cout << "The shipping price for package is " << price;
 
     return 0;
 }
